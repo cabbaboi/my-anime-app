@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=0.8,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+      <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"/>
+    <nav>
+    <h1>
+      <img id="logo" src="logo.png">
+      Search Anime By Picture</h1>
+    </nav>
+    <style>
+      *{
+          box-sizing: border-box;
+      }
+      /* .img img[src=""] {
+          border: none;
+      } */
+      #myimg{
+        /* max-width: 100%; */
+        max-width: 323px;
+        border: rgb(23, 27, 29);
+        border-style: solid;
+        border-radius: 9px;
+        border-width: 7px;
+        background-color:  rgb(23, 27, 29);
+      }
+      .img{
+        /* max-width: 100%; */
+        /* margin: 0;
+        padding: 0;
+        border: rgb(23, 27, 29);
+        border-style: solid;
+        border-radius: 2px;
+        border-width: 7px; */
+        max-width: 309px;
+        box-shadow: 0 3px 5px rgb(0, 0, 0, 0.09);
+      }
+      
+      #logo{
+        max-width: 30px;
+      }
+      #cardimg{
+        width: 99%;
+      }
+      .choose{
+        font-size: 108%;
+        border-radius: 30px;
+        background: chartreuse;
+      }
+      #search{
+        font-size: 140%;
+        font-weight: bold;
+        border-radius: 65px;
+        background: rgb(106, 231, 57);
+        border: none;
+        padding: 3px 5px;
+        color: whitesmoke;
+      }
+      #search:hover{
+        font-size: 160%;
+        font-weight: bolder;
+        background-color: rgb(185, 231, 57);
+        border: none;
+      }
+      html { font-size:100%; 
+        font-family: 'Montserrat', sans-serif;
+        }
+      nav {
+        background-color: #111;
+        box-shadow: 0 3px 5px rgb(0, 0, 0, 0.09);
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+          }
+      body{
+        background: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: antiquewhite;
+        margin-top: 92px;
+      }
+      #demo{
+        transform: translateZ(0);
+        transition-duration: 0.3s;
+        transition-property: transform;
+        background:transparent;
+        background-color: black;
+        border:none;
+        padding: 0 5px;
+        border-radius: 30px;
+      }
+      #demo:hover{
+        transform: scale(1.1);
+        background-color: cadetblue;
+      }
+      #card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 50%;
+        margin-right: 50%;
+        max-width: min-content;
+      }
+      
+      /* @media screen and (orientation: portrait) { 
+          body {font-size:1.1rem;
+          
+          margin-top: 110px;
+          }
+          #card{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: auto;
+          }
+      }  */
+      /* @media (max-width:481px) { 
+          body {font-size:1rem;
+            margin-top: 90px;
+          } 
+      }  */
+      /* @media (min-width:1060px) { 
+          body {font-size:2.8rem;
+          margin-top: 190px;
+          }
+          #card{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-left: 2%;
+            margin-right: 2%;
+          }
+      }  */
+      
+      
+      
+    </style>
+</head>
+<body>
+
+    <div>
+  
+        <div id="myimg">
+          <img src="" id="upload-img" class="img">
+        </div>
+        <div>
+          <!-- <label for="fileupload"></label> -->
+          <input class="choose" type="file" id="fileupload">
+        </div>
+      
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+        <script>
+          $(function(){
+            $("#fileupload").change(function(event){
+              var x = URL.createObjectURL(event.target.files[0]);
+              $("#upload-img").attr("src",x);
+              console.log(event);
+            });
+            
+            
+          })
+        </script>
+
+<pre>Upload image to Search</pre>  
+<input  id="search" type = "button" onclick = "myfunction()" value = "Search">  
+
+
+<p id="demo" onclick = "newfunction()"> </p>
+<div id="card">
+    <img src="" id="cardimg">
+    <p id="demo2"></p>
+    <p>                                  </p>
+    <object width="420" height="315" id="frame"
+    data="">
+    </object>
+</div>
+<!-- <a id="demo1" target="_blank"></a> -->
+<!-- <input type = "button" onclick = "newfunction()" value = "See">   -->
+
+<script type = "text/javascript">  
+    function myfunction() {   
+    // alert("Showing The Result!");  
+  //trace.moe code start
+    var img = document.querySelector(".img"); // select image from DOM
+  var canvas = document.createElement("canvas");
+  canvas.width = img.naturalWidth;
+  canvas.height = img.naturalHeight;
+  var ctx = canvas.getContext("2d");
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  
+  fetch("https://trace.moe/api/search", {
+    method: "POST",
+    body: JSON.stringify({ image: canvas.toDataURL("image/jpeg", 0.8) }),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((res) => res.json())
+    .then((result) => {
+      console.log(result);
+//trace.moe code 
+
+    var obj = result;
+    document.getElementById("demo").innerHTML = "Anime: "+obj.docs[0].title_romaji +" ~"+ (obj.docs[0].similarity*100).toFixed(2)+"%";
+    
+    console.log(obj.docs[0].mal_id);
+    window.value = obj.docs[0].mal_id;
+
+
+    });
+
+   
+  
+             }  
+    </script>  
+
+<script type = "text/javascript">  
+    function newfunction() { 
+        // MAL code start
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', `https://api.jikan.moe/v3/anime/${window.value}`, true);
+
+// What to do when response is ready
+        xhr.onload = function () {
+            if (this.status === 200) {
+                let json = JSON.parse(this.responseText);
+                let articles = json;
+                console.log(articles);
+                    
+                    console.log(articles["url"]);
+                
+                //         document.getElementById("demo1").innerHTML = "learn more...";
+                
+                // document.getElementById("demo1").href = articles["url"];
+                document.getElementById("cardimg").src = articles["image_url"];
+                document.getElementById("demo2").innerHTML = "<b>"+articles["title_japanese"]+"</b> / <b>"+articles["title_english"]+"</b><br>"+"<b>Type:</b> "+articles["type"]+"     <b>Source:</b> "+articles["source"]+"<br>"+"<b>Status:</b> "+articles["status"]+"   <b>Score:</b> "+articles["score"]+"<br>"+"<b>Synopsis:</b> "+articles["synopsis"]+"<br>"+"<b>Studio:</b> "+articles.studios[0].name+"<a href="+articles["url"]+" target="+"_blank"+">     Learn more...</a>";
+                document.getElementById("frame").data = articles["trailer_url"];
+            }
+            else {
+                console.log("Some error occured");
+            }
+        }
+
+        xhr.send()
+// MAL code end   
+      // document.getElementById("card").style.background = "black";
+      // document.getElementById("card").style.border = "black";
+      var obj = document.getElementById("card");
+      obj.setAttribute("style", "background: black; border: black; border-style:solid; border-width:5px; border-radius:5px");
+     }  
+    </script>  
+    
+  
+
+</body>
+</html>
