@@ -53,7 +53,7 @@
         background: chartreuse;
       }
       #search{
-        font-size: 140%;
+        font-size: 160%;
         font-weight: bold;
         border-radius: 65px;
         background: rgb(106, 231, 57);
@@ -62,7 +62,7 @@
         color: whitesmoke;
       }
       #search:hover{
-        font-size: 160%;
+        font-size: 170%;
         font-weight: bolder;
         background-color: rgb(185, 231, 57);
         border: none;
@@ -115,6 +115,9 @@
         margin-right: 50%;
         max-width: min-content;
       }
+
+      /* loading */
+      .loader{width:60px;height:60px;background:0 0;border:5px solid transparent;border-top-color:rgb(238, 255, 85);border-left-color:rgb(85, 255, 85);border-radius:50%;animation:loader .89s 100 ease forwards}@keyframes loader{100%{transform:rotate(365deg)}}
       
       /* @media screen and (orientation: portrait) { 
           body {font-size:1.1rem;
@@ -200,7 +203,10 @@
 <!-- <input type = "button" onclick = "newfunction()" value = "See">   -->
 
 <script type = "text/javascript">  
-    function myfunction() {   
+    function myfunction() { 
+      //loading
+      document.getElementById("demo").innerHTML = '<div class="loader"></div>';
+      
     // alert("Showing The Result!");  
   //trace.moe code start
     var img = document.querySelector(".img"); // select image from DOM
@@ -227,7 +233,11 @@
     window.value = obj.docs[0].mal_id;
 
 
-    });
+    }).catch((error) => {
+    // Handle the error
+    console.log("this is error");
+    document.getElementById("demo").innerHTML = "Oops! Network Error!";
+  });
 
    
   
@@ -243,7 +253,7 @@
 
 // What to do when response is ready
         xhr.onload = function () {
-            if (this.status === 200) {
+            if (this.readyState === 4 && this.status === 200) {
                 let json = JSON.parse(this.responseText);
                 let articles = json;
                 console.log(articles);
@@ -259,6 +269,7 @@
             }
             else {
                 console.log("Some error occured");
+                document.getElementById('card').innerHTML = '<div class="loader"></div>';
             }
         }
 
