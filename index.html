@@ -50,9 +50,10 @@
       .choose{
         font-size: 108%;
         border-radius: 30px;
-        background: chartreuse;
+        background-color: #04aa44;
+        /* background: chartreuse; */
       }
-      #search{
+      /* #search{
         font-size: 160%;
         font-weight: bold;
         border-radius: 65px;
@@ -66,7 +67,7 @@
         font-weight: bolder;
         background-color: rgb(185, 231, 57);
         border: none;
-      }
+      } */
       html { font-size:100%; 
         font-family: 'Montserrat', sans-serif;
         }
@@ -150,6 +151,46 @@
             margin-right: 2%;
           }
       }  */
+
+      /*button*/
+      .mbutton {
+    position: relative;
+    background-color: #04AA6D;
+    border: none;
+    font-size: 22px;
+    color: #FFFFFF;
+    padding: 7px;
+    margin-top: 3px;
+    width: 50%;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 50px;
+  }
+  
+  .mbutton:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+  }
+  
+  .mbutton:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }  
+
       
       
       
@@ -187,7 +228,9 @@
         </script>
 
 <pre>Upload image to Search</pre>  
-<input  id="search" type = "button" onclick = "myfunction()" value = "Search">  
+<!-- <input  id="search" type = "button" onclick = "myfunction()" value = "Search">  -->
+
+<button id="button" class="mbutton" onclick="myfunction()">Search</button>
 
 
 <p id="demo" onclick = "newfunction()"> </p>
